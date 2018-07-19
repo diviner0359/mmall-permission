@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 second">
+
+    <!-- log的输出形式，可以多个 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--<appender name="permission" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.home}/logs/permission.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.home}/logs/permission.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    &lt;!&ndash; 定义几个不同的logger名称，通常一个logger定义一个appender &ndash;&gt;
+    <logger name="xxx" level="INFO">
+        <appender-ref ref="permission"/>
+    </logger>-->
+
+    <!-- 只能有一个，定义appender以什么样的级别去接收日志。
+         级别：TRACE < DEBUG < INFO < WARN < ERROR
+         当root级别设置为INFO时，INFO级别以下的就不会输出  -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
