@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:annotation-config/>
 
@@ -14,7 +16,7 @@
 
     <!-- 两个核心的类 -->
     <!-- 当我们来定义一个Spring MVC 的接口的时候，会使用@RequestMapping这个注解 -->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
     <!-- 告诉我们的Spring MVC项目，当我们来一个请求之后，我们以什么样的格式的数据返回给它，比如json、jsp等等 -->
     <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
     <!-- 需要做额外的配置 -->
