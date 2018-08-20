@@ -36,6 +36,7 @@ public class HttpInterceptor extends HandlerInterceptorAdapter {
         long start = (Long)request.getAttribute(START_TIME);
         long end = System.currentTimeMillis();
         log.info("request finished.url:{},param:{},cost:{}",url, JsonMapper.obj2String(parameterMap),end -start);*/
+        removeThreadLocalInfo();
     }
 
     //请求结束之后，会调用该方法，在任何情况下都会调用（包括异常）
@@ -46,5 +47,10 @@ public class HttpInterceptor extends HandlerInterceptorAdapter {
         long start = (Long)request.getAttribute(START_TIME);
         long end = System.currentTimeMillis();
         log.info("request complete.url:{},param:{},cost:{}",url, JsonMapper.obj2String(parameterMap), end - start);
+        removeThreadLocalInfo();
+    }
+
+    public void removeThreadLocalInfo(){
+        RequestHolder.remove();
     }
 }

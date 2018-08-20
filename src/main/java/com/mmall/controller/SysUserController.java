@@ -1,11 +1,15 @@
 package com.mmall.controller;
 
+import com.mmall.beans.PageQuery;
+import com.mmall.beans.PageResult;
 import com.mmall.common.JsonResult;
+import com.mmall.model.SysUser;
 import com.mmall.param.DeptParam;
 import com.mmall.param.UserParam;
 import com.mmall.service.SysUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -33,4 +37,13 @@ public class SysUserController {
         sysUserService.update(param);
         return JsonResult.success();
     }
+
+    @RequestMapping("/page.json")
+    @ResponseBody
+    public JsonResult page(@RequestParam("deptId") int deptId, PageQuery pageQuery) {
+        PageResult<SysUser> result = sysUserService.getPageByDeptId(deptId, pageQuery);
+        return JsonResult.success(result);
+    }
+
+    
 }
