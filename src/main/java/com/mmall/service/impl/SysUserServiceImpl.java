@@ -103,8 +103,10 @@ public class SysUserServiceImpl implements SysUserService{
             return PageResult.<SysUser>builder().total(count).data(list).build();
         }
         return PageResult.<SysUser>builder().build();
+    }
 
-
+    public List<SysUser> getAll(){
+        return sysUserMapper.getAll();
     }
 
 }

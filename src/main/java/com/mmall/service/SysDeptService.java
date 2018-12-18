@@ -59,7 +59,7 @@ public class SysDeptService {
         updateWithChild(before,after);
     }
     @Transactional
-    private void updateWithChild(SysDept before,SysDept after){
+    public void updateWithChild(SysDept before,SysDept after){
         String newLevelPerfix = after.getLevel();
         String oldLevelPrefix = before.getLevel();
         if(!after.getLevel().equals(before.getLevel())){
