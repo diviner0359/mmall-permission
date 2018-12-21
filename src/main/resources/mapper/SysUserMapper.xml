@@ -210,7 +210,7 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM sys_user
-    WHERE user_id IN
+    WHERE id IN
     <foreach collection="idList" item="id" open="(" close=")" separator=",">
       #{id}
     </foreach>

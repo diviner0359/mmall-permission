@@ -22,4 +22,6 @@ public interface SysRoleMapper {
 
     List<SysRole> getAll();
 
+    List<SysRole> getByIdList(@Param("idList") List<Integer> idList);
+
 }

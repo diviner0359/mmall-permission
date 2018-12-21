@@ -79,6 +79,14 @@ public class SysRoleController {
         return JsonResult.success();
     }
 
+    @RequestMapping("/changeUsers.json")
+    @ResponseBody
+    public JsonResult changeUsers(@RequestParam("roleId") int roleId,@RequestParam(value = "userIds",required = false,defaultValue = "") String userIds){
+        List<Integer> userIdList = StringUtil.splitToListInt(userIds);
+        sysRoleUserService.changeRoleUsers(roleId,userIdList);
+        return JsonResult.success();
+    }
+
     @RequestMapping("/users.json")
     @ResponseBody
     public JsonResult users(@RequestParam("roleId") int roleId){
